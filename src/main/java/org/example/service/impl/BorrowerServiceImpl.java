@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -31,6 +32,22 @@ public class BorrowerServiceImpl implements BorrowerService {
     @Override
     public List<BorrowerEntity> getBorrowers() {
         return (List<BorrowerEntity>) repository.findAll();
+    }
+
+    @Override
+    public boolean deleteBorrower(Long id) {
+        if (repository.existsById(id)){
+            repository.deleteById(id);
+            return true;
+        }else {
+            return false;
+        }
+    }
+
+    @Override
+    public Borrower searchBorrowerById(Long id) {
+        Optional<BorrowerEntity> byId = repository.findById(id);
+      return mapper.map(byId, Borrower.class);
     }
 
 }

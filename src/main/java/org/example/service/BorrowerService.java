@@ -8,4 +8,6 @@ import java.util.List;
 public interface BorrowerService {
     void addBorrower(Borrower borrower);
     List<BorrowerEntity> getBorrowers();
+    boolean deleteBorrower(Long id);
+    Borrower searchBorrowerById(Long id);
 }
