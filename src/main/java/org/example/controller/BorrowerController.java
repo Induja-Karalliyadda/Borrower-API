@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/borrower")
+@CrossOrigin
 public class BorrowerController {
 
     final BorrowerService service;
