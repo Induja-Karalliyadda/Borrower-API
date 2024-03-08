@@ -16,7 +16,7 @@ import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
-public class BorrowerServiceImpl implements BorrowerService {
+public class  BorrowerServiceImpl implements BorrowerService {
     final  BorrowerRepository repository;
     @Bean
     public void setup(){

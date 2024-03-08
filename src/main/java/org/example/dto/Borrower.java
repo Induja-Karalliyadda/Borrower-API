@@ -8,8 +8,9 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Borrower {
-    private String BID;
-    private String NIC;
+    private Long id;
+    private String bid;
+    private String nic;
     private String name;
     private int contact;
     private String address;

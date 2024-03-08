@@ -10,6 +10,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/borrower")
@@ -24,16 +26,14 @@ public class BorrowerController {
         service.addBorrower(borrower);
     }
     @GetMapping("/get")
-    public Iterable<BorrowerEntity>  getBorrowers(){
-       return service.getBorrowers();
+    public List<BorrowerEntity> getBorrowers(){
+        return service.getBorrowers();
     }
     @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.OK)
-    public ResponseEntity<String> deleteBorrower(@PathVariable Long id){
-        return service.deleteBorrower(id)?
-            ResponseEntity.ok("Deleted"):
-            ResponseEntity.notFound().build();
-
+    public String deleteBorrower(@PathVariable Long id){
+        service.deleteBorrower(id);
+            return ("Deleted");
     }
     @GetMapping("search/{id}")
     public Borrower searchBorrowerById(@PathVariable Long id){

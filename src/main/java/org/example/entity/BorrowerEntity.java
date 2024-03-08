@@ -16,8 +16,8 @@ public class BorrowerEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    private String BID;
-    private String NIC;
+    private String bid;
+    private String nic;
     private String name;
     private int contact;
     private String address;
